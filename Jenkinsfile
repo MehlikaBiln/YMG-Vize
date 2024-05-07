@@ -8,7 +8,7 @@ pipeline {
             steps {
                 checkout scmGit(
                     branches: [[name: '*/main']],
-                    userRemoteConfigs: [[url: 'https://github.com/MehlikaBiln/demo2']]
+                    userRemoteConfigs: [[url: 'https://github.com/MehlikaBiln/YMG-Vize']]
                 )
                 bat 'mvn clean install'
             }
@@ -25,7 +25,7 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("demo12:${env.BUILD_NUMBER}").run("-d -p 8081:8081 --name demo-container")
+                    docker.image("demo12:${env.BUILD_NUMBER}").run("-d -p 8082:8082 --name demo-container")
                 }
             }
   }
