@@ -25,7 +25,7 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("YMG-Vize:${env.BUILD_NUMBER}").run("-d -p 8082:8082 --name demo-container")
+                    docker.image("YMG-Vize:${env.BUILD_NUMBER}").run("-d -p 8082:8044 --name demo-container")
                 }
             }
   }
