@@ -18,14 +18,14 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    docker.build("demo12:${env.BUILD_NUMBER}")
+                    docker.build("YMG-Vize:${env.BUILD_NUMBER}")
                 }
             }
         }
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("demo12:${env.BUILD_NUMBER}").run("-d -p 8082:8082 --name demo-container")
+                    docker.image("YMG-Vize:${env.BUILD_NUMBER}").run("-d -p 8082:8082 --name demo-container")
                 }
             }
   }
